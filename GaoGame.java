@@ -3,6 +3,7 @@ import java.util.*;
 import java.lang.Math;
 import java.util.Arrays;
 
+// need notes to explain this shit
 public class GaoGame {
 
 
