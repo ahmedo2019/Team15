@@ -1,11 +1,12 @@
 import java.util.*;
 import java.lang.Math;
 import java.util.Arrays;
-// no comment here
+
 public class Grids {
 	// numCols & numRows being changed will change the whole program
-	public static int numRows = 4;
+	public static int numRows = 4 ;
     public static int numCols = 4;
+
 	// 2d array to put the 1d values in
     public static int[][] grid = new int[numRows][numCols];
 	// 1d array to put values in
