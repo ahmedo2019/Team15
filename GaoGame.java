@@ -2,8 +2,7 @@ import java.util.Scanner;
 import java.util.*;
 import java.lang.Math;
 import java.util.Arrays;
-
-// need notes to explain this shit
+// add comments cause its a mess
 public class GaoGame {
 
 
