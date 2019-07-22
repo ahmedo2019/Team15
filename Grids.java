@@ -1,7 +1,7 @@
 import java.util.*;
 import java.lang.Math;
 import java.util.Arrays;
-// need comment
+// need comments
 public class Grids {
 	// numCols & numRows being changed will change the whole program
 	public static int numRows = 4;
