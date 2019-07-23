@@ -4,11 +4,16 @@ Welcome to the Card Match Memory Game Instructions.
 
 To run the game and execute the program using your command prompt.
 
-1.) Download the file called the cardMatch.java
+1.) Download the file called the CardMatchGame.java from the
+	repository called Team15, this repository is under the
+	owner of ahmedo2019.
+	This is the link of the repository:
+	https://github.com/ahmedo2019/Team15
 
-2.) Once the file has been downloaded use the command prompt and 
-	search for the directory in which the file exists using 
-	the "cd" command to search through folders.
+2.) Once the file has been downloaded fromt the repository use 
+	the command prompt and search for the directory in which 
+	the file exists using the "cd" command to search through 
+	folders.s
 
 3.) After locating the file, you must compile the code using the 
 	command javac cardMatch.java.
