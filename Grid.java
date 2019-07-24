@@ -5,30 +5,47 @@ import java.util.Arrays;
 public class Grid{
 	// numRows/Cols = easy
 	public static int numRows = 4;
-    public static int numCols = 4;
-	
-	
-	// NEED TO CHANGE THIS... 5x5 cannot have 2 of each number
-	public static int numRows2 = 5;
-    public static int numCols2 = 5;
-	// NEED TO CHANGE THIS... 5x5 cannot have 2 of each number
-	
-	
-	// 2d array to put the 1d values in
-    public static int[][] grid = new int[numRows][numCols];
+	public static int numRows2 = 6;
+    public static int numCols = 4 ;
+    public static int numCols2 = 6;
+
+	public static void setRows(int r){
+		numRows = r;
+	 }
+	 public static void setCols(int c){
+		numCols = c;
+	 }
+	 public static void setCount(int [] co){
+		Count = co;
+	 }
+	 public static void setGrid(int [][] g){
+		 grid = g;
+	 }
+	public static int[][] grid = new int[numRows][numCols];
 	public static int[][] grid2 = new int[numRows2][numCols2];
 	// 1d array to put values in
 	public static int [] Count = new int[ ( ( numRows * numCols))];
 	public static int [] Count2 = new int[ ( ( numRows2 * numCols2))];
 	public static void gridPlayEasy() {
-
+		// 2d array to put the 1d values in
+		setCols(4);
+		setRows(4);
+		setGrid( grid);
+		setCount( Count);
 		createGrid();
+	}
+	public static void gridPlayHard() {
+		setCols(6);
+		setRows(6);
+		setGrid( grid2);
+		setCount( Count2);
+		createGrid( );
 	}
 	public static void createGrid() {
 		// makes a 1d list made up of (numCols * numRows) amount of values
 		// only 2 of each number allowed
 		int counter = 0;
-		for( int i = 0; i < ( ( numRows * numCols)); i+= 2){ //8 times
+		for( int i = 0; i < ( ( numRows * numCols)); i+= 2){ 
 			if (i == 0 || i == 1)
 				Count[0] = 0;
 				Count[1] = 0;
@@ -59,20 +76,20 @@ public class Grid{
 		}
 			System.out.println();
 
-			String[][] array = {{"*","*","*","*"},
-								{"*","*","*","*"},
-								{"*","*","*","*"},
-								{"*","*","*","*"},
-													};
-
+			String[][] array = new String[numRows2][numCols2];
+		for(int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[i].length; j++) {
+				array[i][j] = "*";
+			}
+		}
 		System.out.println("Before: ");
 	    for(int i = 0; i<numRows; i++){
-		for(int j = 0; j<numCols; j++){
-			if (j <= 2)
-			System.out.print("|" + array[i][j]);
-			if (j == 3)
-			System.out.print("|" + array[i][j] + "|");
-		}
+			for(int j = 0; j<numCols; j++){
+				if (j <= numCols - 2)
+				System.out.print("|" + array[i][j]);
+				if (j == numCols - 1)
+				System.out.print("|" + array[i][j] + "|");
+			}
 		System.out.println();
 		}
 		
@@ -92,7 +109,7 @@ public class Grid{
 				System.out.print("Player " +m+ " please enter your Y-coordinate for card one: ");
 				int a = input.nextInt();
 				// limit inorder for input to not go out of bound
-				if (a >= 4 && b >= 4) {
+				if (a >= numRows && b >= numCols) {
 					System.out.println("\nPlease Choose valid X and Y coordinates");}
 				else {	
 					int value1 =grid[a][b];
@@ -104,7 +121,7 @@ public class Grid{
 				System.out.print("Player " +m+ " please enter your Y-coordinate for card two: ");
 				int c = input.nextInt();
 				// limit such that input doesnot fo out of bound
-				if (c >= 4 && d >= 4) {
+				if (c >= numRows && d >= numCols) {
 					System.out.println("\nPlease Choose valid X and Y coordinates");}
 				else {
 					int value2 =grid[c][d];
@@ -171,7 +188,5 @@ public class Grid{
 			}       
 	}
 	// hard mode
-	public static void gridPlayHard() {
-	System.out.println("HARD LEVEL IS COMING SOON...");
-	}
+
 }
