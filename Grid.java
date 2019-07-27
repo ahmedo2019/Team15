@@ -34,6 +34,9 @@ public class Grid{
 	 public static int getRows2(){
 		 return numRows2;
 	 }
+	 public static void setGrid2(int [][] agrid2){
+		agrid = agrid2;
+	 }
 	public static int[][] agrid = new int[numRows][numCols];
 	public static int[][] grid2 = new int[numRows2][numCols2];
 	// 1d array to put values in
