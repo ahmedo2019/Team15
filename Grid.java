@@ -12,6 +12,7 @@ public class Grid{
 	public static void setRows(int r){
 		numRows = r;
 	 }
+
 	 public static void setCols(int c){
 		numCols = c;
 	 }
@@ -19,9 +20,21 @@ public class Grid{
 		Count = co;
 	 }
 	 public static void setGrid(int [][] g){
-		 grid = g;
+		agrid = g;
 	 }
-	public static int[][] grid = new int[numRows][numCols];
+	 public static int getRows(){
+		 return numRows;
+	 }
+	 public static int getCols(){
+		 return numCols;
+	 }
+	 public static int getCols2(){
+		return numCols2;
+	 }
+	 public static int getRows2(){
+		 return numRows2;
+	 }
+	public static int[][] agrid = new int[numRows][numCols];
 	public static int[][] grid2 = new int[numRows2][numCols2];
 	// 1d array to put values in
 	public static int [] Count = new int[ ( ( numRows * numCols))];
@@ -30,20 +43,21 @@ public class Grid{
 		// 2d array to put the 1d values in
 		setCols(4);
 		setRows(4);
-		setGrid( grid);
+		setGrid( agrid);
 		setCount( Count);
-		createGrid();
+		createGrid(agrid);
+		inputs(agrid);
 	}
 	public static void gridPlayHard() {
 		setCols(6);
 		setRows(6);
 		setGrid( grid2);
 		setCount( Count2);
-		createGrid( );
+		createGrid( agrid);
+		inputs(agrid);
 	}
-	public static void createGrid() {
-		// makes a 1d list made up of (numCols * numRows) amount of values
-		// only 2 of each number allowed
+	public static int[][] createGrid(int [][] agrid) {
+		int [][]grid =agrid; 
 		int counter = 0;
 		for( int i = 0; i < ( ( numRows * numCols)); i+= 2){ 
 			if (i == 0 || i == 1)
@@ -75,8 +89,12 @@ public class Grid{
 			System.out.println(array);
 		}
 			System.out.println();
+			return (grid);
+	}
 
-			String[][] array = new String[numRows2][numCols2];
+	public static void inputs(int[][] agrid){
+		int[][] grid = agrid ;
+		String[][] array = new String[numRows2][numCols2];
 		for(int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[i].length; j++) {
 				array[i][j] = "*";
@@ -92,9 +110,8 @@ public class Grid{
 			}
 		System.out.println();
 		}
-		
 			int score1=0;int m=1; int score2 = 0;
-			for(int i = 0;i<8;i++) {
+			for(int i = 0;((score1 + score2)<((numRows * numCols)/2));i++) {
 				// m = 1 is player 1, m = 2 is player 2
 				if (m%2==0)
 		    		m=2;
@@ -127,20 +144,21 @@ public class Grid{
 					int value2 =grid[c][d];
 					System.out.println("Your second card is: " +value2);
 				// decide if the 2 values match
-				if (value1 == value2) {
-					System.out.println("They Match!");
-					// score1 = score for player 1
-					if (m == 1) {
-						score1=score1+1;
-						System.out.println("Player " + m + " score is: "+score1);
-					}
-					else 
-						// score 2 = score for player 2
-					{
-						score2=score2+1;
-						System.out.println("Player " + m + " score is: "+score2);
-					}
-
+				if ( a != c || b!= d){
+					if (value1 == value2) {
+						System.out.println("They Match!");
+						// score1 = score for player 1
+						if (m == 1) {
+							score1=score1+1;
+							System.out.println("Player " + m + " score is: "+score1);
+						}
+						else 
+							// score 2 = score for player 2
+						{
+							score2=score2+1;
+							System.out.println("Player " + m + " score is: "+score2);
+						}
+				}
 					String v1=Integer.toString(value1);
 					array[a][b]=v1; 
 					String v2=Integer.toString(value2);
@@ -173,7 +191,7 @@ public class Grid{
 				}	
 			}
 				}
-			}
+			} // WHERE THE FOR LOOP ENDS
 			// when all the values are matched
 			System.out.println("Game Over\nMatch Summary\n\n");
 			// decide result
@@ -187,6 +205,5 @@ public class Grid{
 				System.out.println("Play again!");
 			}       
 	}
-	// hard mode
 
 }
